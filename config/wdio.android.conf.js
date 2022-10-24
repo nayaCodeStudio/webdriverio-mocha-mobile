@@ -6,8 +6,13 @@ config.specs = [
 
 config.capabilities = [
   {
-    platformName: "Android",
-    "appium:platformVersion": "12",
+    "appium:noReset": true,
+    "appium:fullReset": false,
+    "appium:autoGrantPermissions": true,
+    "appium:autoAcceptAlerts": true,
+    "appium:maxInstances": 1,
+    "appium:platformName": "Android",
+    "appium:platformVersion": "10",
     "appium:deviceName": "Pixel 4 API 28",
     "appium:automationName": "UIAutomator2",
     "appium:appPackage": "com.google.android.apps.maps",
@@ -18,7 +23,12 @@ config.capabilities = [
 
 // config.capabilities = [
 //   {
-//     platformName: "Android",
+//     "appium:noReset": true,
+//     "appium:fullReset": false,
+//     "appium:autoGrantPermissions": true,
+//     "appium:autoAcceptAlerts": true,
+//     "appium:maxInstances": 1,
+//     "appium:platformName": "Android",
 //     "appium:platformVersion": "12",
 //     "appium:deviceName": "Pixel 4 API 28",
 //     "appium:automationName": "UIAutomator2",
