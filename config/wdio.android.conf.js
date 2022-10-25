@@ -4,6 +4,10 @@ config.specs = [
   path.join(process.cwd(), './test/specs/android/google-maps*.js')
 ];
 
+/**
+ * Config capabilities when the app is already installed on the mobile device.
+ */
+
 config.capabilities = [
   {
     "appium:noReset": true,
@@ -20,6 +24,10 @@ config.capabilities = [
     "appium:autoGrantPermissions": true
   }
 ];
+
+/**
+ * Config capabilities when the app is not yet install on the mobile device.
+ */
 
 // config.capabilities = [
 //   {
