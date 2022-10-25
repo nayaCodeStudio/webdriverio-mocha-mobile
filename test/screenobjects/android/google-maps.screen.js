@@ -36,6 +36,18 @@ class GoogleMapsScreen {
         return $('//*[@text="Explore nearby"]');
     }
 
+    get assertionFieldSearch() {
+        return $('//*[@text="Search here"]');    
+    }
+
+    get fieldChooseStartLocation() {
+        return $('//*[@text="Choose start location"]');
+    }
+
+    get assertionStartLocation() {
+        return $('//*[@text="West Jakarta"]');
+    }
+
     /**
      * Get locator of elements by xath
      */
