@@ -49,7 +49,7 @@ class GoogleMapsScreen {
     }
 
     /**
-     * Get locator of elements by xath
+     * Get locator of elements by xpath
      */
 
     get iconGoogleMaps() {
