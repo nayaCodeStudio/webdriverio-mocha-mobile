@@ -2,7 +2,11 @@ import googleMapsScreen from "../../screenobjects/android/google-maps.screen";
 
 describe ('User want to go to some place and see the map on Google Maps :', () => {
     it ('I am launch the app and already logged in on the app.', async() => {
-        expect(googleMapsScreen.assertionFieldSearch).toBeDisplayed();
+        if (await googleMapsScreen.textOneGoogleMaps.isDisplayed()) {
+            expect(googleMapsScreen.textOneGoogleMaps).toBeDisplayed();
+        } else {
+            await googleMapsScreen.textTwoGoogleMaps.isDisplayed();
+        }
     });
 
     it ('I will be redirected to Explore page.', async() => {
@@ -10,9 +14,17 @@ describe ('User want to go to some place and see the map on Google Maps :', () =
     });
 
     it ('Search place.', async() => {
-        await googleMapsScreen.assertionFieldSearch.click();
-        await googleMapsScreen.assertionFieldSearch.setValue('Jakarta International Expo');
-        expect(googleMapsScreen.assertionItemSearch).toBeDisplayed();
+        if (await googleMapsScreen.textOneGoogleMaps.isDisplayed()) {
+            expect(googleMapsScreen.textOneGoogleMaps).toBeDisplayed();
+            await googleMapsScreen.textOneGoogleMaps.click();
+            await googleMapsScreen.textTwoGoogleMaps.setValue('Jakarta International Expo');
+            expect(googleMapsScreen.assertionItemSearch).toBeDisplayed();
+        } else {
+            await googleMapsScreen.textTwoGoogleMaps.isDisplayed();
+            await googleMapsScreen.textTwoGoogleMaps.click();
+            await googleMapsScreen.textTwoGoogleMaps.setValue('Jakarta International Expo');
+            expect(googleMapsScreen.assertionItemSearch).toBeDisplayed();
+        }
     });
 
     it ('Click on item place destination.', async () => {
