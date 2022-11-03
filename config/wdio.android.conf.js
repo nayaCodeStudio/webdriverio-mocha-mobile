@@ -9,7 +9,7 @@ config.specs = [
  */
 config.capabilities = [
   {
-    "appium:noReset": false,
+    "appium:noReset": true,
     "appium:fullReset": false,
     "appium:autoGrantPermissions": true,
     "appium:autoAcceptAlerts": true,
@@ -27,7 +27,7 @@ config.capabilities = [
  */
 // config.capabilities = [
 //   {
-//     "appium:noReset": false,
+//     "appium:noReset": true,
 //     "appium:fullReset": false,
 //     "appium:autoGrantPermissions": true,
 //     "appium:autoAcceptAlerts": true,

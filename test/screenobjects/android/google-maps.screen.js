@@ -48,6 +48,10 @@ class GoogleMapsScreen {
         return $('//*[@text="West Jakarta"]');
     }
 
+    get textTwoGoogleMaps() {
+        return $('//*[@text="Search here"]');
+    }
+
     /**
      * Get locator of elements by xpath
      */
@@ -79,6 +83,10 @@ class GoogleMapsScreen {
     /**
      * Get locator of elements by id
      */
+
+    get textOneGoogleMaps() {
+        return $('~Try gas stations, ATMs');
+    }
 
     get btnSearchVoiceLocation() {
         return $('~Voice search');
