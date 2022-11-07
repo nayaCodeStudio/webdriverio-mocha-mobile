@@ -1,5 +1,12 @@
 const path = require('path');
 const { config } = require('./wdio.shared.conf');
+
+config.port = 4723;
+
+config.services = [
+  'appium'
+];
+
 config.specs = [
   path.join(process.cwd(), './test/specs/android/google-maps*.js')
 ];
@@ -39,9 +46,4 @@ config.capabilities = [
 //   }
 // ];
 
-config.services = [
-  'appium'
-];
-
-config.port = 4723;
 exports.config = config;
