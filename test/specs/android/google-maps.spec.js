@@ -2,6 +2,7 @@ import googleMapsScreen from "../../screenobjects/android/google-maps.screen";
 
 describe ('User want to go to some place and see the map on Google Maps :', () => {
     it ('I am launch the app and already logged in on the app.', async() => {
+        await driver.pause(5000);
         if (await googleMapsScreen.textOneGoogleMaps.isDisplayed()) {
             expect(googleMapsScreen.textOneGoogleMaps).toBeDisplayed();
         } else {
@@ -46,5 +47,7 @@ describe ('User want to go to some place and see the map on Google Maps :', () =
 
     it ('Rute will be display on the app.', async() => {
         expect(googleMapsScreen.assertionItemSearch).toBeDisplayed();
+        await driver.pause(5000);
+        await driver.closeApp();
     });
 });
