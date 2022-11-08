@@ -1,53 +1,28 @@
-import googleMapsScreen from "../../screenobjects/android/google-maps.screen";
+const GoogleMapsPage = require('../../pages/android/google-maps.page');
+const googleMapsPage = new GoogleMapsPage();
 
 describe ('User want to go to some place and see the map on Google Maps :', () => {
     it ('I am launch the app and already logged in on the app.', async() => {
-        await driver.pause(5000);
-        if (await googleMapsScreen.textOneGoogleMaps.isDisplayed()) {
-            expect(googleMapsScreen.textOneGoogleMaps).toBeDisplayed();
-        } else {
-            await googleMapsScreen.textTwoGoogleMaps.isDisplayed();
-        }
+        await googleMapsPage.userLaunchApp();
     });
 
     it ('I will be redirected to Explore page.', async() => {
-        expect(googleMapsScreen.btnExplore).toBeDisplayed();
+        await googleMapsPage.displayExplorePage();
     });
 
     it ('Search place.', async() => {
-        if (await googleMapsScreen.textOneGoogleMaps.isDisplayed()) {
-            expect(googleMapsScreen.textOneGoogleMaps).toBeDisplayed();
-            await googleMapsScreen.textOneGoogleMaps.click();
-            await googleMapsScreen.textTwoGoogleMaps.setValue('Jakarta International Expo');
-            expect(googleMapsScreen.assertionItemSearch).toBeDisplayed();
-        } else {
-            await googleMapsScreen.textTwoGoogleMaps.isDisplayed();
-            await googleMapsScreen.textTwoGoogleMaps.click();
-            await googleMapsScreen.textTwoGoogleMaps.setValue('Jakarta International Expo');
-            expect(googleMapsScreen.assertionItemSearch).toBeDisplayed();
-        }
+        await googleMapsPage.searchPlaceDestination();
     });
 
     it ('Click on item place destination.', async () => {
-        await googleMapsScreen.assertionItemSearch.click();
+        await googleMapsPage.choosePlaceDestionation();
     });
 
     it ('Click on button direction to show the rute.', async() => {
-        expect(googleMapsScreen.assertionButtomTextItemSearch).toBeDisplayed();
-        await googleMapsScreen.btnDirection.click();
-        if (await googleMapsScreen.fieldChooseStartLocation.isDisplayed()) {
-            await googleMapsScreen.fieldChooseStartLocation.click();
-            await googleMapsScreen.fieldChooseStartLocation.setValue('Jakarta Barat');
-            expect(googleMapsScreen.assertionStartLocation).toBeDisplayed();
-            await googleMapsScreen.assertionStartLocation.click();
-        } else {
-            expect(googleMapsScreen.btnStart).toBeDisplayed();
-        }
+        await googleMapsPage.directionPlaceDestination();
     });
 
     it ('Rute will be display on the app.', async() => {
-        expect(googleMapsScreen.assertionItemSearch).toBeDisplayed();
-        await driver.pause(5000);
-        await driver.closeApp();
+        await googleMapsPage.displayRutePlaceDestination();
     });
 });
