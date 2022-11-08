@@ -117,4 +117,4 @@ class GoogleMapsScreen {
     }
 }
 
-export default new GoogleMapsScreen();
+module.exports = new GoogleMapsScreen();
