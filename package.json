@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@wdio/cli": "^7.25.4",
-    "appium": "^2.0.0-beta.46",
+    "appium": "^2.0.0-beta.71",
     "dotenv": "^10.0.0",
     "wdio-wait-for": "^3.0.0"
   },
